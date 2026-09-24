@@ -16,12 +16,12 @@ _TYPE_RULES = [
     ("Observational Study", ("observational study", "cohort", "cross-sectional")),
 ]
 _TITLE_RULES = [
-    ("Meta-Analysis", re.compile(r"meta-analy", re.I)),
-    ("Systematic Review", re.compile(r"systematic review", re.I)),
-    ("Randomized Controlled Trial", re.compile(r"randomi[sz]ed", re.I)),
-    ("Review", re.compile(r"\breview\b", re.I)),
-    ("Observational Study", re.compile(r"cohort|cross-sectional|case-control", re.I)),
-    ("Case Report", re.compile(r"case (study|report)", re.I)),
+    ("Meta-Analysis", re.compile(r"meta-analy", re.IGNORECASE)),
+    ("Systematic Review", re.compile(r"systematic review", re.IGNORECASE)),
+    ("Randomized Controlled Trial", re.compile(r"randomi[sz]ed", re.IGNORECASE)),
+    ("Review", re.compile(r"\breview\b", re.IGNORECASE)),
+    ("Observational Study", re.compile(r"cohort|cross-sectional|case-control", re.IGNORECASE)),
+    ("Case Report", re.compile(r"case (study|report)", re.IGNORECASE)),
 ]
 
 

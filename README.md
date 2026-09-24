@@ -30,6 +30,16 @@ Optional: set `NCBI_API_KEY` (10 requests/s instead of 3) and `NCBI_EMAIL` as en
 
 See [reports/pcos_and_sedentary_lifestyle_report.md](reports/pcos_and_sedentary_lifestyle_report.md).
 
+## REST API, SQL, Docker, CI
+
+```bash
+uvicorn pubmed_etl.api:app            # http://localhost:8000/docs (Swagger UI)
+#   GET /health  /papers?year=&study_type=&q=&limit=&offset=  /papers/{pmid}  /stats/years
+sqlite3 data/pubmed.db < sql/analytics.sql     # CTE + window-function analytics
+docker build -t pubmed-etl . && docker run -p 8000:8000 -v pubmed:/app/data pubmed-etl
+ruff check . && python -m pytest               # same steps run by GitHub Actions
+```
+
 ## From v1 to v2: what changed and why
 
 **v1** (`pubmed.ipynb`) was a notebook that scraped PubMed's search-results HTML with `requests` + `BeautifulSoup`, looped over a fixed 5 pages, and wrote a CSV of 50 papers. It worked as a first prototype, but review showed correctness, robustness and reuse problems, and PubMed has since started serving an anti-bot challenge page to plain HTTP clients, so HTML scraping no longer returns results. v2 rebuilds it as a proper ETL pipeline.
@@ -45,7 +55,7 @@ See [reports/pcos_and_sedentary_lifestyle_report.md](reports/pcos_and_sedentary_
 | 7 | CSV overwritten each run, with a junk index column | No history, no queries, unclear schema | SQLite (`papers`, `authors`, `paper_queries`) with idempotent upserts keyed on PMID; clean CSV export with `index=False` |
 | 8 | Stopped after collection | Nothing learned from the data | Report and charts: papers per year, top journals, study types, MeSH terms, common words, data-quality table |
 | 9 | Topic hardcoded in URL and filenames | One-off script | CLI takes any PubMed query (`python -m pubmed_etl "..."`) |
-| 10 | No tests | Changes could break it unnoticed | 11 pytest tests (parsing edge cases, dedupe, upsert, pagination maths, report) |
+| 10 | No tests | Changes could break it unnoticed | 16 pytest tests (parsing edge cases, dedupe, upsert, pagination maths, report) |
 | 11 | Single notebook | Hard to read, reuse or run outside Jupyter | Modular package, `requirements.txt`, `.gitignore`, this README |
 | 12 | Query typo "sedantary" | No MeSH mapping, so PubMed matched the misspelt word literally | Corrected to "sedentary"; the log prints how PubMed interpreted the query |
 

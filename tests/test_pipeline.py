@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-import pandas as pd
 import pytest
 
 from pubmed_etl import analysis, parser, storage, transform

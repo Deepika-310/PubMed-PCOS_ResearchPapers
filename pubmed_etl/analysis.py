@@ -4,19 +4,13 @@ from collections import Counter
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import pandas as pd  # noqa: E402
+import matplotlib.pyplot as plt
+import pandas as pd
 
 _WORD = re.compile(r"[a-z][a-z\-]{3,}")
-STOPWORDS = set("""
-that this with from were have been which their these than also into other such more most
-between among about after before during within without using used use while when where
-both each however however study studies results result conclusions conclusion background
-objective objectives methods method purpose aims aim findings review analysis data
-associated association women woman patients patient group groups compared including
-included based showed shown found significant significantly higher lower increased
-""".split())
+STOPWORDS = set(["that", "this", "with", "from", "were", "have", "been", "which", "their", "these", "than", "also", "into", "other", "such", "more", "most", "between", "among", "about", "after", "before", "during", "within", "without", "using", "used", "use", "while", "when", "where", "both", "each", "however", "however", "study", "studies", "results", "result", "conclusions", "conclusion", "background", "objective", "objectives", "methods", "method", "purpose", "aims", "aim", "findings", "review", "analysis", "data", "associated", "association", "women", "woman", "patients", "patient", "group", "groups", "compared", "including", "included", "based", "showed", "shown", "found", "significant", "significantly", "higher", "lower", "increased"])
 
 
 def papers_per_year(df):
