@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID Version="1">111</PMID>
+      <Article>
+        <Journal><Title>Journal One</Title><JournalIssue><PubDate><Year>2022</Year></PubDate></JournalIssue></Journal>
+        <ArticleTitle>Complete   paper
+          with <i>italic</i> title.</ArticleTitle>
+        <Abstract>
+          <AbstractText Label="BACKGROUND">Background text.</AbstractText>
+          <AbstractText Label="RESULTS">Results text.</AbstractText>
+        </Abstract>
+        <AuthorList>
+          <Author><LastName>Smith</LastName><Initials>J</Initials></Author>
+          <Author><LastName>Doe</LastName><Initials>A</Initials></Author>
+        </AuthorList>
+        <PublicationTypeList>
+          <PublicationType>Journal Article</PublicationType>
+          <PublicationType>Randomized Controlled Trial</PublicationType>
+        </PublicationTypeList>
+      </Article>
+      <MeshHeadingList>
+        <MeshHeading><DescriptorName>Polycystic Ovary Syndrome</DescriptorName></MeshHeading>
+        <MeshHeading><DescriptorName>Exercise</DescriptorName></MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData><ArticleIdList>
+      <ArticleId IdType="pubmed">111</ArticleId>
+      <ArticleId IdType="doi">10.1/one</ArticleId>
+    </ArticleIdList></PubmedData>
+  </PubmedArticle>
+
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID Version="1">222</PMID>
+      <Article>
+        <Journal><Title>Journal Two</Title><JournalIssue><PubDate><MedlineDate>2019 Dec-2020 Jan</MedlineDate></PubDate></JournalIssue></Journal>
+        <ArticleTitle>Paper with no abstract and a group author.</ArticleTitle>
+        <AuthorList>
+          <Author><CollectiveName>PCOS Consortium</CollectiveName></Author>
+        </AuthorList>
+        <PublicationTypeList><PublicationType>Journal Article</PublicationType></PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+  </PubmedArticle>
+
+  <PubmedArticle>
+    <MedlineCitation>
+      <PMID Version="1">333</PMID>
+      <Article>
+        <Journal><Title>Journal Three</Title><JournalIssue><PubDate><Year>2024</Year></PubDate></JournalIssue></Journal>
+        <ArticleTitle>A systematic review with no authors listed.</ArticleTitle>
+        <Abstract><AbstractText>Only abstract here.</AbstractText></Abstract>
+        <PublicationTypeList><PublicationType>Systematic Review</PublicationType></PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+  </PubmedArticle>
+
+  <PubmedBookArticle><BookDocument><PMID>999</PMID></BookDocument></PubmedBookArticle>
+</PubmedArticleSet>
