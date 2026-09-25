@@ -99,7 +99,7 @@
 | health | 26 |
 | metabolic | 24 |
 | obesity | 22 |
-| insulin | 21 |
-| risk | 21 |
 | factors | 21 |
+| risk | 21 |
+| insulin | 21 |
 | body | 20 |
